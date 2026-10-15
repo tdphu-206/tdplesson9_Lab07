@@ -1,0 +1,71 @@
+﻿@model IEnumerable<TdpLab07_Lesson9.Areas.Admins.Models.Category>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Quản lý danh mục";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Danh sách danh mục sản phẩm</h3>
+        <div class="card-tools">
+            <!-- Nút bấm chuyển sang trang Thêm mới (Create) -->
+            <a asp-area="Admins" asp-controller="Category" asp-action="Create" class="btn btn-primary btn-sm">
+                <i class="fas fa-plus"></i> Thêm mới danh mục
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Tên danh mục</th>
+                    <th>Trạng thái</th>
+                    <th>Ngày tạo</th>
+                    <th class="text-center">Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    int i = 1;
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@(i++)</td>
+                            <td>@item.Name</td>
+                            <td>
+                                @if (item.Status == 1)
+                                {
+                                    <span class="badge bg-success">Hiển thị</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">Ẩn</span>
+                                }
+                            </td>
+                            <td>@item.CreatedDate.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td class="text-center">
+                                <!-- Nút Sửa trỏ đến Action Edit, truyền kèm asp-route-id -->
+                                 <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">
+                                      <i class="fas fa-edit"></i> Sửa
+                                 </a>
+    
+                                <!-- Nút Xóa trỏ đến Action Delete, truyền kèm asp-route-id -->
+                                 <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc chắn muốn xóa danh mục này không?');">
+                                     <i class="fas fa-trash"></i> Xóa
+                                 </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5" class="text-center text-muted">Chưa có dữ liệu danh mục nào trong cơ sở dữ liệu.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

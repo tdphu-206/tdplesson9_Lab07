@@ -1,0 +1,260 @@
+﻿@charset "utf-8";
+/* 
+    Template Name: Bistup
+    File: layout.css
+*/
+
+/* --- RESET & BASIC STYLES --- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f9f9f9;
+    color: #333333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    width: 100%;
+    display: block;
+}
+
+.hoc {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.clear::after, .group::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.fl_left {
+    float: left;
+}
+
+.fl_right {
+    float: right;
+}
+
+/* --- HEADER & TOP BAR --- */
+.row0 {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 8px 0;
+    font-size: 13px;
+}
+
+.row1 {
+    background-color: #ffffff;
+    padding: 25px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    #header h1 a {
+        color: #222222;
+    }
+
+#header p {
+    margin: 4px 0 0 0;
+    color: #777777;
+    font-size: 13px;
+}
+
+/* --- NAVIGATION MENU --- */
+.row2 {
+    background-color: #272727;
+}
+
+#mainav ul {
+    display: flex;
+}
+
+    #mainav ul li a {
+        display: block;
+        padding: 14px 22px;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 14px;
+        text-transform: uppercase;
+        transition: background 0.2s ease;
+    }
+
+        #mainav ul li a:hover,
+        #mainav ul li.active a {
+            background-color: #00acc1;
+            color: #ffffff;
+        }
+
+/* --- BANNER / INTRO SECTION --- */
+.bgded {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#pageintro {
+    padding: 100px 0;
+    text-align: center;
+    color: #ffffff;
+}
+
+    #pageintro article {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    #pageintro p {
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+
+    #pageintro h3.heading {
+        font-size: 42px;
+        margin: 15px 0 20px 0;
+        font-weight: bold;
+    }
+
+.btn {
+    display: inline-block;
+    padding: 12px 26px;
+    background-color: #00acc1;
+    color: #ffffff;
+    border-radius: 4px;
+    margin-top: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+
+    .btn:hover {
+        background-color: #00838f;
+        color: #fff;
+    }
+
+/* --- MAIN CONTENT & GRID (3 CỘT) --- */
+.row3 {
+    background-color: #ffffff;
+    padding: 60px 0;
+}
+
+.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.sectiontitle {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+    .sectiontitle h6.heading {
+        font-size: 26px;
+        color: #222222;
+        margin-bottom: 10px;
+    }
+
+    .sectiontitle p {
+        color: #777777;
+        font-size: 15px;
+        margin: 0;
+    }
+
+/* Hệ thống lưới 3 cột (One Third) */
+.group {
+    display: block;
+}
+
+.one_third {
+    display: inline-block;
+    float: left;
+    width: 31.6666%;
+    margin-right: 2.5%;
+    background: #fdfdfd;
+    padding: 25px;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+}
+
+    .one_third:last-child {
+        margin-right: 0;
+    }
+
+    .one_third.first {
+        clear: left;
+    }
+
+    .one_third h6.heading a {
+        color: #222222;
+        font-size: 18px;
+    }
+
+        .one_third h6.heading a:hover {
+            color: #00acc1;
+        }
+
+    .one_third p {
+        color: #666666;
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 15px 0;
+    }
+
+/* --- FOOTER --- */
+.row4 {
+    background-color: #202020;
+    color: #b1b1b1;
+    padding: 40px 0;
+}
+
+.row5 {
+    background-color: #121212;
+    color: #777777;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media screen and (max-width: 768px) {
+    .one_third {
+        display: block;
+        float: none;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
+
+    #mainav ul {
+        flex-direction: column;
+    }
+}

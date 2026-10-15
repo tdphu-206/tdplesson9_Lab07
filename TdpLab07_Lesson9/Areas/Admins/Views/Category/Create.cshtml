@@ -1,0 +1,51 @@
+﻿@model TdpLab07_Lesson9.Areas.Admins.Models.Category
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Thêm mới danh mục";
+}
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Thêm mới danh mục sản phẩm</h3>
+    </div>
+    <!-- Form gửi dữ liệu theo phương thức POST về Action Create -->
+    <form asp-action="Create" method="post">
+        <div class="card-body">
+            <!-- Hiển thị tổng hợp lỗi validation (nếu có) -->
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Nhập Tên danh mục -->
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" placeholder="Nhập tên danh mục..." />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <!-- Nhập Mô tả -->
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="3" placeholder="Nhập mô tả danh mục..."></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <!-- Chọn Trạng thái -->
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <select asp-for="Status" class="form-control">
+                    <option value="1">Hiển thị</option>
+                    <option value="0">Ẩn</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+        </div>
+        
+        <div class="card-footer">
+            <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Lưu lại</button>
+            <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Quay lại danh sách</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

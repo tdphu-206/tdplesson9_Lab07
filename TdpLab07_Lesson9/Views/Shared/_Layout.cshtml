@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>@ViewData["Title"] - TdpLab07_Lesson9</title>
+
+    <!-- Link CSS chính của template Bistup -->
+    <link href="~/css/layout.css" rel="stylesheet" type="text/css" media="all" asp-append-version="true" />
+
+    <!-- Thêm RenderSection("Css") để các View con có thể chèn CSS riêng nếu cần -->
+    @RenderSection("Css", required: false)
+</head>
+<body id="top">
+
+    <!-- BEGIN HEADER -->
+    <div class="wrapper row1">
+        <header id="header" class="hoc clear">
+            <div id="logo" class="fl_left">
+                <h1><a href="/">Bistup</a></h1>
+            </div>
+        </header>
+    </div>
+    <!-- END HEADER -->
+    <!-- BEGIN MENU -->
+    <div class="wrapper row2">
+        <nav id="mainav" class="hoc clear">
+            <ul class="clear">
+                <li class="active"><a asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- END MENU -->
+    <!-- NỘI DUNG ĐỘNG TỪ CÁC VIEW CON -->
+    @RenderBody()
+
+    <!-- BEGIN FOOTER -->
+    <div class="wrapper row5">
+        <div id="copyright" class="hoc clear">
+            <p class="fl_left">Copyright &copy; 2026 - TdpLab07</p>
+        </div>
+    </div>
+    <!-- END FOOTER -->
+    <!-- JAVASCRIPTS của template -->
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/jquery.backtotop.js"></script>
+    <script src="~/js/jquery.mobilemenu.js"></script>
+
+    <!-- Thêm RenderSection("Scripts") để các View con có thể chèn script riêng -->
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
